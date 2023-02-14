@@ -1,0 +1,15 @@
+<launch>
+
+  <node pkg="positions" name="redbeater" type="beater_red.py" output="screen"/>
+  <node pkg="positions" name="bluebeater" type="beater_blue.py" output="screen"/>
+
+  <node pkg="positions" name="redchaser" type="chaser_red.py" output="screen"/>
+  <node pkg="positions" name="bluechaser" type="chaser_blue.py" output="screen"/>
+
+  <node pkg="positions" name="redkeeper" type="keeper_red.py" output="screen"/>
+  <node pkg="positions" name="bluekeeper" type="keeper_blue.py" output="screen"/>
+
+  <node pkg="positions" name="redseeker" type="seeker_red.py" output="screen"/>
+  <node pkg="positions" name="blueseeker" type="seeker_blue.py" output="screen"/>
+
+</launch>

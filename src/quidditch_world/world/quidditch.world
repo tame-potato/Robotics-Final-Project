@@ -1,0 +1,183 @@
+# World file for quidditch simulation
+# Pablo Ruiz, 10 December 2020
+# pablo_ruiz@student.uml.edu
+
+# 10 minutes of simulated time
+quit_time 600
+
+# Set simulation timestep in milliseconds
+interval_sim 100
+
+# Set resolution of ray traced models
+resolution 0.01
+
+# Configure the GUI window
+window
+(
+  size [ 360.000 750.000 ] # in pixels
+  scale 10  # pixels per meters
+  center [ 16.5  33 ] # in meters
+  rotate [ 0  0 ]
+  			
+  show_data 1              # 1=on 0=off
+)
+
+
+# Import the selected bitmap
+define floorplan model
+(
+  # sombre, sensible, artistic
+  color "gray30"
+
+  # most maps will need a bounding box
+  boundary 1
+
+  # Sets map attributes
+  gui_nose 0
+  gui_grid 0
+  gui_move 0
+  gui_outline 0
+
+  # Sets sensor behaviour to floorpan bitmap
+  gripper_return 0
+  fiducial_return 0
+  laser_return 1
+  ranger_return 1
+)
+
+
+# Load an environment bitmap using an instance of the floorplan model
+floorplan
+(
+  name "quidditch-world"
+  bitmap "bitmaps/quidditch_field.png"
+  size [33 66 5] # In meters
+  pose [16.5 33 0 0]
+)
+
+# Define the sensors
+define topurg ranger
+(
+  # Set sensor range and shape
+  sensor( 			
+    range [ 0.0  3.0 ]
+    fov 90
+    samples 1081
+  )
+  
+  # Generic model properties
+  color "black"
+  size [ 0.050 0.050 0.100 ]
+)
+
+# Define robot agents
+define chaser position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [1 1 2]
+  origin [0 0 0 0]
+  gui_nose 1
+  topurg(pose [ 0 0 0 0 ])
+)
+
+define beater position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [2 2 2]
+  origin [0 0 0 0]
+  gui_nose 1
+  topurg(pose [ 0 0 0 0 ])
+)
+
+define seeker position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [2 1 2]
+  origin [0 0 0 0]
+  gui_nose 1
+  topurg(pose [ 0 0 0 0 ])
+)
+
+define keeper position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [1 2 2]
+  origin [0 0 0 0]
+  gui_nose 1
+  topurg(pose [ 0 0 0 0 ])
+)
+
+# Define a ball agent
+define ball position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [0.5 0.5 0.5]
+  gui_nose 1
+)
+
+# Define a goal agent 
+define goal position
+(
+  drive "omni"
+
+  localization "gps"
+  localization_origin [0 0 0 0]
+  odom_error [0 0 0 0]
+
+  size [4 1 3]
+  gui_nose 1
+)
+
+# Players
+chaser(pose [ 8.2 53 0 270 ] name "chaser1" color "red")
+chaser(pose [ 24.7 13 0 90 ] name "chaser2" color "blue")
+
+beater(pose [ 16.5 53 0 270 ] name "beater1" color "red")
+beater(pose [ 16.5 13 0 90 ] name "beater2" color "blue")
+
+seeker(pose [ 24.7 53 0 270 ] name "seeker1" color "red")
+seeker(pose [ 8.2 13 0 90 ] name "seeker2" color "blue")
+
+keeper(pose [ 16.5 58 0 270 ] name "keeper1" color "red")
+keeper(pose [ 16.5 8 0 90 ] name "keeper2" color "blue")
+
+# Balls
+ball(pose [ 5.5 33 0 0 ] name "quaffle1" color "purple")
+
+ball(pose [ 11 33 0 0 ] name "bludger1" color "black")
+
+ball(pose [ 16.5 33 0 0 ] name "snitch" color "gold")
+
+# Goals
+goal(pose [ 16.5 3 0 0 ] name "goal_blue" color "gray30")
+goal(pose [ 16.5 63 0 0 ] name "goal_red" color "gray30")
+
+# Additional Balls
+ball(pose [ 27.5 33 0 0 ] name "quaffle2" color "purple")
+
+ball(pose [ 22 33 0 0 ] name "bludger2" color "black")

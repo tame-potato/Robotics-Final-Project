@@ -1,0 +1,14 @@
+<launch>
+
+  <node pkg="stage_ros" name="stageros" type="stageros" args="$(find quidditch_world)/world/quidditch.world" output="screen"/>
+
+  <include file="$(find positions)/launch/positions.launch"/>
+
+  <node pkg="gamekeeper" name="snitch" type="snitch.py" output="screen"/>
+  <node pkg="gamekeeper" name="redquaffle" type="quafflered.py" output="screen"/>
+  <node pkg="gamekeeper" name="bluequaffle" type="quaffleblue.py" output="screen"/>
+
+  <node pkg="gamekeeper" name="bluebludger" type="bludger_blue.py" output="screen"/>
+  <node pkg="gamekeeper" name="redbludger" type="bludger_red.py" output="screen"/>
+
+</launch>
