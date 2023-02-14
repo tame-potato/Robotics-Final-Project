@@ -1,0 +1,8 @@
+prefix=/home/christian/EECE_5560_Final_Project/catkin_ws/install
+
+Name: stage_ros
+Description: Description of stage_ros
+Version: 1.8.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

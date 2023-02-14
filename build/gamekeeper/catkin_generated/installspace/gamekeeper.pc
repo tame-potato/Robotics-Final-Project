@@ -1,0 +1,8 @@
+prefix=/home/christian/EECE_5560_Final_Project/catkin_ws/install
+
+Name: gamekeeper
+Description: Description of gamekeeper
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/christian/EECE_5560_Final_Project/catkin_ws/devel/setup.sh

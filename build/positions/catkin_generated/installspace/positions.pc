@@ -1,0 +1,8 @@
+prefix=/home/christian/EECE_5560_Final_Project/catkin_ws/install
+
+Name: positions
+Description: Description of positions
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

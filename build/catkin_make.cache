@@ -1,0 +1,2 @@
+gamekeeper:positions:quidditch_world:stage_ros
+-DCATKIN_DEVEL_PREFIX=/home/christian/EECE_5560_Final_Project/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/christian/EECE_5560_Final_Project/catkin_ws/install -G Unix Makefiles
