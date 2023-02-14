@@ -1,19 +1,7 @@
-# Quidditch code writing readme
+# Quidditch simulator readme
+This repository contains a multi-agent simulation of a simplified quidditch game using the Robot Operating System (ROS) and the 2D graphical simulator Stage. Each agent is simulated with its own ROS node and a game running node enforces the game's rules. This project is meant to showcase the software simulation capabilities of ROS.
 
 This is a quick readme to get you started on understanding what you need to write.
-
-## Git stuff
-### To create a new branch and start working:
-
-`git clone https://github.com/apenam7/EECE_5560_Final_Project.git`
-`git checkout -b my_branch_name`
-*do a code*
-`git add --all` or whatever files you want instead of `--all`
-`git commit -m "The code i changed breaks everyone else's *thumbs up emoji*"`
-`git push`
-
-### To get other peoples' code
-`git pull origin master` or maybe main now idk
 
 ## Commands to get started
 Install ros on your system (melodic for ubuntu 18, kinetic for ubuntu 16, noetic for ubuntu 20)
